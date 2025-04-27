@@ -9,3 +9,15 @@ Disclaimers
 3) Multi GPU systems can have trouble choosing which GPU to be used on the program/game
 4) No Virtual Display at the moment
 5) Required another Display output capable device on your system
+
+
+
+
+
+551.61
+Tesla:
+https://drive.google.com/uc?export=download&id=15Fx7RX_anupzZYbAdDH0b_Es5LM2zEUk
+
+
+Non-tesla:
+https://drive.google.com/uc?export=download&id=1v--seHf8kj800GlpGK2mn_I2951ZhFjo
