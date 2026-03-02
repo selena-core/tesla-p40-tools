@@ -24,3 +24,34 @@ https://drive.google.com/uc?export=download&id=15Fx7RX_anupzZYbAdDH0b_Es5LM2zEUk
 
 Game Ready Driver:
 https://drive.google.com/uc?export=download&id=1v--seHf8kj800GlpGK2mn_I2951ZhFjo
+
+
+
+
+Extras:
+Some games may require updated drivers to play, 
+(example: Battlefield 6 requires a newer version than 551.61)
+in some of these games you can trick the game to think the driver
+is other version by modifying a string on the nvapi64.dll file.
+(nvapi64.dll can be found at C:\Windows\System32)
+(You can patch the file before install, folder inside the driver zip ./Display.Driver ,
+it will give an error on install but just ignore)
+
+I used at the time:
+Verpatch - a tool to patch win32 version resources on .exe or .dll files,
+Version: 1.0.15 (25-Oct-2016)
+You can find a remains of it here: https://github.com/Mendeley/Update-Installer/blob/master/external/verpatch/verpatch-ReadMe.txt
+
+For the cmd:
+
+verpatch.exe nvapi64.dll "32.0.15.8088" /pv "32.0.15.8088"
+
+Where "32.0.15.8088" are the strings that identify the driver
+version, so u look for a version that your game works and 
+copy its complete version ID and edit the cmd accordingly.
+
+CAUTION the string text enconding (example: UTF-8 and etc)
+must match the original file enconding, dont understand?
+A simple ctrl+c ctrl+v maybe copy text using enconding that 
+Verpatch or the game dont identify and it fail some way.
+
