@@ -1,0 +1,45 @@
+Here are the Windows Registry entries you must edit in order to use the driver in WDDM
+
+Steps
+-----------------------------------------------------------------------------------------------------------
+1) Find your GPUs entries in C:\WINDOWS\regedit.exe 
+(example: HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\0000)
+In multi GPUs systems you may have GPUs listed as 0000, 0001, 0002 and etc
+-----------------------------------------------------------------------------------------------------------
+2) Modify the entries on the desired GPUs
+On the Tesla P40 reg, find "AdapterType" and "FeatureScore"
+
+"AdapterType"=dword:00000001
+Change "AdapterType" to 1
+
+"FeatureScore"=dword:000000d1
+Change "FeatureScore" to d1
+
+Now for the New entries that prob wont be already there:
+
+Add New Value DWORD (32 bits)
+Name it to: GridLicensedFeature
+Value Hexadecimal to: 7
+
+"GridLicensedFeatures"=dword:00000007
+
+-----------------------------------------------------------------------------------------------------------
+OPTIONAL: If want to Windows identify the GPUs correctly as High Performance or Economy add these steps
+
+High Performance GPU must have the entry= "EnableMsHybrid"=dword:00000001
+
+Economy GPU must have the entry= "EnableMsHybrid"=dword:00000002
+------------------------------------------------------------------------------------------------------------
+3) On Device Manager, find NVIDIA Tesla P40 under Video Adapters
+Right Click and DISABLE device (wait a bit)
+Then Right Click and ENABLE device
+
+DONE you should be able to test it now
+-----------------------------------------------------------------------------------------------------------
+4) If after step 3 u got any error, print and tell on Issues
+After System restart the P40 may spawn a Virtual Display called NVIDIA VGX
+To disable it you must go to the Nvidia Control Panel...
+On the Monitor tab, Configure Multi Display, On the Tesla P40 unmark the box for NVIDIA VGX. And restart system
+-----------------------------------------------------------------------------------------------------------
+
+You should now be able to use the P40 ANYWHERE as a normal GPU :)
